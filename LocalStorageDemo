@@ -1,0 +1,45 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Local Storage Demo</h1>
+        <form action = "infolocal.html">
+            First Name: <input type="text" id="fn" name="fn"><br><br>
+            Last Name: <input type="text" id="ln" name="ln"><br><br>
+            Password: <input type="text" id="pw" name="pw"><br><br>
+
+            <button onclick="saveInfo()">Save Info</button>
+            <button onclick="retrieveInfo()">Retrieve Info</button>
+            <button onclick="removeInfo()">Remove Info</button>
+        </form>
+        <!-- local storage allows you to retrieve or save values. Example: "we're saying: save lastName to l1 in local storage"-->
+        <script>
+            function saveInfo(){
+                let firstName = document.getElementById("fn").value;
+                let lastName = document.getElementById("ln").value;
+                localStorage.setItem("f1",firstName);
+                localStorage.setItem("l1",lastName);
+
+
+                let fullName = document.getElementById("fn").value + document.getElementById("ln").value;
+
+                localStorage.setItem("fullName",fullName); 
+
+            }
+
+            function retrieveInfo(){
+                document.getElementById("fn").value = localStorage.getItem("f1");
+                document.getElementById("ln").value = localStorage.getItem("l1");
+                document.getElementById().value = localStorage.getItem("fullName");
+            }
+
+            function removeInfo(){
+                localStorage.clear();
+                //.clear removes all data
+                //the below removes especific items:
+                //localStorage.removeItem("f1");
+                //localStorage.removeItem("l1");
+            }
+
+        </script>
+    </body>
+</html>
